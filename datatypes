@@ -1,0 +1,35 @@
+// Define an integer variable
+int age = 25;
+
+// Define a double variable
+double height = 1.75;
+
+// Define a string variable
+String name = "John";
+
+// Define a list of integers
+List<int> numbers = [1, 2, 3, 4, 5];
+
+// Define a map of strings and integers
+Map<String, int> grades = {
+  "Math": 90,
+  "Science": 85,
+  "English": 95
+};
+
+void main() {
+  // Print the integer variable
+  print("My age is $age");
+
+  // Print the double variable
+  print("My height is $height meters");
+
+  // Print the string variable
+  print("My name is $name");
+
+  // Print the list of integers
+  print("My favorite numbers are $numbers");
+
+  // Print the map of grades
+  print("My grades are $grades");
+
