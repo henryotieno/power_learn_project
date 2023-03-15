@@ -1,0 +1,55 @@
+class Student {
+  late String name;
+  late int age;
+  late int gradeLevel;
+
+  Student(this.name, this.age, this.gradeLevel);
+
+  void printInfo() {
+    print("Student Name: $name");
+    print("Age: $age");
+    print("Grade Level: $gradeLevel");
+  }
+}
+
+class Teacher {
+  late String name;
+  late int age;
+  late String subject;
+
+  Teacher(this.name, this.age, this.subject);
+
+  void printInfo() {
+    print("Teacher Name: $name");
+    print("Age: $age");
+    print("Subject: $subject");
+  }
+}
+
+class School {
+  late Student student;
+  late Teacher teacher;
+
+  School() {
+    student = Student("John Doe", 15, 9);
+    teacher = Teacher("Jane Smith", 35, "Math");
+  }
+
+  void printStudentInfo() {
+    student.printInfo();
+  }
+
+  void printTeacherInfo() {
+    teacher.printInfo();
+  }
+
+  void printAllInfo() {
+    printStudentInfo();
+    printTeacherInfo();
+  }
+}
+
+void main() {
+  final school = School();
+  school.printAllInfo();
+}
