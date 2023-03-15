@@ -1,0 +1,70 @@
+import 'dart:io';
+
+void main() {
+  runApp();
+}
+
+void runApp() {
+  print("Welcome to the Calculator App");
+  print("Enter a number:");
+  var num1 = int.parse(stdin.readLineSync()!);
+  print("Enter another number:");
+  var num2 = int.parse(stdin.readLineSync()!);
+
+  print("\nChoose an operation:");
+  print("1. Add");
+  print("2. Subtract");
+  print("3. Multiply");
+  print("4. Divide");
+  print("5. Exit");
+
+  var choice = int.parse(stdin.readLineSync()!);
+
+  switch (choice) {
+    case 1:
+      print("$num1 + $num2 = ${add(num1, num2)}");
+      break;
+    case 2:
+      print("$num1 - $num2 = ${subtract(num1, num2)}");
+      break;
+    case 3:
+      print("$num1 * $num2 = ${multiply(num1, num2)}");
+      break;
+    case 4:
+      print("$num1 / $num2 = ${divide(num1, num2)}");
+      break;
+    case 5:
+      exit(0);
+      break;
+    default:
+      print("Invalid choice");
+  }
+
+  runApp(); // restart the app
+}
+
+int add(int num1, int num2) {
+  return num1 + num2;
+}
+
+int subtract(int num1, int num2) {
+  return num1 - num2;
+}
+
+int multiply(int num1, int num2) {
+  return num1 * num2;
+}
+
+double divide(int num1, int num2) {
+  return num1 / num2;
+}
+
+int findMax(List<int> numbers, int index, int max) {
+  if (index == numbers.length) {
+    return max;
+  }
+  if (numbers[index] > max) {
+    max = numbers[index];
+  }
+  return findMax(numbers, index + 1, max);
+}
