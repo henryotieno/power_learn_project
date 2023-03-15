@@ -1,0 +1,76 @@
+import 'dart:io';
+
+// Define an interface
+abstract class Animal {
+  String get name;
+  String makeSound();
+}
+
+// Define a base class
+class Mammal implements Animal {
+  late String name;
+  late int age;
+
+  @override
+  String makeSound() {
+    return "This mammal makes a sound";
+  }
+}
+
+// Define a derived class that implements the interface
+class Dog extends Mammal implements Animal {
+  @override
+  String makeSound() {
+    return "Woof!";
+  }
+}
+
+// Define a derived class that overrides a method
+class Cat extends Mammal implements Animal {
+  @override
+  String makeSound() {
+    return "Meow!";
+  }
+}
+
+// Define a method that reads data from a file and initializes an object
+Mammal readMammalFromFile(String filename) {
+  final file = File(filename);
+  final lines = file.readAsLinesSync();
+
+  final mammal = Mammal();
+  mammal.name = lines[0];
+  mammal.age = int.parse(lines[1]);
+
+  return mammal;
+}
+
+// Define a method that demonstrates the use of a loop
+void printNumbers(int n) {
+  for (int i = 1; i <= n; i++) {
+    print(i);
+  }
+}
+
+void main() {
+  // Initialize an instance of the Cat class
+  final cat = Cat();
+  cat.name = "Fluffy";
+  cat.age = 3;
+
+  // Initialize an instance of the Dog class
+  final dog = Dog();
+  dog.name = "Buddy";
+  dog.age = 5;
+
+  // Print the sounds made by the cat and the dog
+  print("${cat.name} says ${cat.makeSound()}");
+  print("${dog.name} says ${dog.makeSound()}");
+
+  // Read data from a file and initialize a Mammal object
+  final mammalFromFile = readMammalFromFile("data.txt");
+  print("Name: ${mammalFromFile.name}, Age: ${mammalFromFile.age}");
+
+  // Demonstrate the use of a loop
+  printNumbers(5);
+}
